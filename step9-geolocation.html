@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="successlog"></h1>
+    <h1 id="errorlog"></h1>
+
+    <script>
+        function successFunction(position){
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+           document.getElementById("successlog").innerHTML = " Longitude : "+lon+" <br/> Latitude : "+lat+"" 
+        }
+        function errorFunction(error){
+            document.getElementById("errorlog").innerHTML = "Error is : "+error.code +" | "+error.message; 
+            console.log(error);
+        }
+        if(navigator.geolocation){
+            navigator
+            .geolocation
+            .getCurrentPosition(successFunction,errorFunction)
+        }
+    </script>
+</body>
+</html>
