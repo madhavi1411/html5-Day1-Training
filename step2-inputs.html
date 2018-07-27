@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        label{
+            display: inline-block;
+            width: 100px;
+        }
+        input{
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function init(arg1, arg2){
+            var source = arg1;
+            var target = arg2;
+            document.getElementById(target).value = document.getElementById(source).value;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label>TEXT</label>
+        <input type="text">
+        <br>
+        <label>SEARCH</label>
+        <input id="sea" type="search" onchange="init('sea','log')">
+        <br>
+        <label>COLOR</label>
+        <input type="color" id="col" onchange="init('col','log')">
+        <br>
+        <label>RANGE</label>
+        <input type="range" id="rng" onchange="init('rng','log')" min="5" max="50" step="5">
+        <br>
+        <label>TIME</label>
+        <input type="time" id="tim" onchange="init('tim','log')">
+        <br>
+        <label>DATE</label>
+        <input type="date" id="dte" onchange="init('dte','log')">
+        <br>
+        <label>DATETIME</label>
+        <input type="datetime" id="dtt" onchange="init('dtt','log')">
+        <br>
+        <label>WEEK</label>
+        <input type="week" id="wke" onchange="init('wke','log')">
+        <br>
+        <label>MONTH</label>
+        <input type="month" id="mon" onchange="init('mon','log')">
+        <br>
+        <label>DATE TIME LOCAL</label>
+        <input type="datetime-local" id="dtl" onchange="init('dtl','log')">
+        <br>
+        <label>NUMBER</label>
+        <input type="number" id="num" onchange="init('num','log')">
+        <br>
+        <label>EMAIL</label>
+        <input type="email" id="eml" onchange="init('eml','log')">
+        <br>
+        <label>URL</label>
+        <input type="url" id="url" onchange="init('url','log')">
+        <hr>
+        <output id="log"/>
+        <hr>
+        <input type="range" min="0" max="1" step="0.1" 
+               id="upload" oninput="init('upload', 'prog')"/>
+        <progress id="prog" value="0.5"></progress>
+
+    <hr>
+    <meter value="0.5"></meter>
+    <hr>
+    <meter low="0.2" high="0.8" optimum="0.5" value="0.1"></meter>
+    <meter low="0.2" high="0.8" optimum="0.5" value="0.9"></meter>
+    <hr>
+    <meter low="0.2" high="0.8" optimum="0.9" value="0.1"></meter>
+    <meter low="0.2" high="0.8" optimum="0.1" value="0.9"></meter>
+    </div>
+</body>
+</html>

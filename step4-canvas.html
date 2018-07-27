@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="400" height="400"></canvas>
+    <hr>
+    <!-- <img src="images/rajani.jpg" id="rajani"> -->
+    <script>
+        var ctx = document.getElementById("can").getContext("2d");
+        // ctx.font = "bold 24px Arial";
+        // // rotate | scale | translate
+        // // ctx.rotate( (Math.PI/180)*45 );// converted from radiance to degrees
+        // // ctx.scale(.5,.5);// width and height multipliers
+        // // ctx.translate(50,50);
+        // ctx.fillText("Valtech",60,50);
+        // ctx.fillStyle = "orange";
+        // ctx.font = "normal 20px Arial";
+        // ctx.fillText("Bangalore",145,50);
+        function init(){
+            var img = new Image();
+                img.src = "images/rajani.jpg";
+                img.onload = function(){
+                    ctx.drawImage(img,0,0);
+                }
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>

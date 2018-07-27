@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid crimson;
+        }
+    </style>
+    <script>
+        window.onload = init;
+        function init(){
+            // var ctx = document.getElementsByTagName("canvas")[0].getContext("2d")
+ var ctx = document.getElementsByTagName("canvas")[0].getContext("2d")
+                var dimension = 900
+                ctx.canvas.width = ctx.canvas.height = dimension;  
+
+                setInterval(function(){
+                    // ctx.clearRect(0,0,400,400);
+                    var x = Math.round(Math.random()*dimension);
+                    var y = Math.round(Math.random()*dimension);
+                    var d = Math.round(Math.random()*100);
+
+                    var r = Math.round(Math.random()*255);
+                    var g = Math.round(Math.random()*255);
+                    var b = Math.round(Math.random()*255);
+                    var a = Math.random();
+
+                    ctx.fillStyle = "rgba("+r+","+g+","+b+","+a+")";
+                    ctx.fillRect(x,y,d,d);
+                },50)
+        }
+    </script>
+</head>
+<body>
+    <canvas></canvas>
+</body>
+</html>

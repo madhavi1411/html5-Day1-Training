@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function ageCheck(){
+        var elm = document.getElementById("ua");
+        var userage = elm.value;
+        
+        if(userage < 18){
+            elm.setCustomValidity("you are too young to join valtech")
+        }else if(userage > 70){
+            elm.setCustomValidity("you are too old to join valtech")
+        }else{
+            elm.setCustomValidity("")
+        };
+
+        }
+    </script>
+</head>
+<body>
+    <form action="#" method="GET">
+    <table>
+        <tr>
+            <td>User Name</td>
+            <td>
+                <input type="text" name="username" required >
+            </td>
+        </tr>
+        <tr>
+            <td>User Age</td>
+            <td>
+                <input id="ua" oninput="ageCheck()" type="number" name="userage" required>
+            </td>
+        </tr>
+        <tr>
+            <td>User Phone Number </td>
+            <td>
+                <!-- 080-12345678 -->
+                <!-- regex cheat sheet -->
+                <!-- 
+                    [0-9]{5} 
+                    [a-z]{5} 
+                    [A-Z]{5} 
+                    [a-z][A-Z]{5} 
+                    d{5} 
+                -->
+                <input type="text" 
+                title="###-######## eg: 080-12345678" 
+                pattern="\d{3}-\d{8}" 
+                name="userphone" 
+                required>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
