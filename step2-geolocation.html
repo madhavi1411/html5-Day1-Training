@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="successlog"></h1>
+    <h1 id="errorlog"></h1>
+
+    <script>
+        function successFunction(position){
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+           document.getElementById("successlog").innerHTML = " Longitude : "+lon+" <br/> Latitude : "+lat+"";
+
+           var location = 'https://maps.googleapis.com/maps/api/staticmap?center='+lat+'+'+lon+'&zoom=19&size=600x300&maptype=roadmap&markers=color:orange|label:V|'+lat+'+'+lon+'';
+           var map = document.getElementById("map").src = location;
+        }
+        function errorFunction(error){
+            document.getElementById("errorlog").innerHTML = "Error is : "+error.code +" | "+error.message; 
+            console.log(error);
+        }
+        if(navigator.geolocation){
+            navigator
+            .geolocation
+            .getCurrentPosition(successFunction,errorFunction)
+        }
+    </script>
+</body>
+<!--img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
+&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+&markers=color:red%7Clabel:C%7C40.718217,-73.998284" alt=""-->
+<img id="map">
+</html>
